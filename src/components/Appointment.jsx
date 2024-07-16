@@ -95,14 +95,11 @@ export default function Appointment() {
   const onSubmit = (data) => {
     console.log(data);
     setFormSubmitted(true);
-    reset(); // reset the form after successful submission
-
-    // Hide the success message after 3 seconds
+    reset();
     const timer = setTimeout(() => {
       setFormSubmitted(false);
     }, 3000);
 
-    // Cleanup the timer if the component unmounts before the timer completes
     return () => clearTimeout(timer);
   };
 
@@ -253,14 +250,14 @@ export default function Appointment() {
                 className={`text-base font-archivo text-grey text-opacity-70 w-full border ${errors.comments ? 'border-red-500' : 'border-light-grey'} bg-off-white resize-none h-[106px] py-[13px] px-3.5 focus:outline-none`}
               ></textarea>
               {errors.comments && <span className="text-red-500 text-sm">{errors.comments.message}</span>}
-              <div className='bg-light-green py-[9.5px] px-[15px] mt-[18px] mb-10'>
+              <div className='bg-light-green py-[9.5px] pl-[15px] mt-[18px] mb-10'>
                 <CustomCheckbox
                   label=' "I hereby request to be contacted for the purpose of obtaining general marketing information about the devices / treatments listed above.  I acknowledge that this information is not medical advice, and that any patient-specific advice or informed consent shall only be obtained at a visit with a qualified professional (MD/PA-C) on our staff."'
                   checked={isChecked}
                   onChange={handleCheckboxChange}
                 />
               </div>
-              <button type='submit' className='font-archivo text-lg leading-108 py-[15px] px-[25px] text-white bg-fade-green uppercase font-medium'>Contact Us</button>
+              <button type='submit' className='font-archivo hover:text-fade-green hover:bg-transparent border-2 border-transparent hover:border-fade-green duration-300 text-lg leading-108 py-[15px] px-[25px] text-white bg-fade-green uppercase font-medium'>Contact Us</button>
             </form>
           </div>
           <div className="lg:w-1/2 px-3 w-full flex lg:justify-end justify-center">
